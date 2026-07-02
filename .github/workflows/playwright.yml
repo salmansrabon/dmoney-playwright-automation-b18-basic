@@ -19,14 +19,6 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Verify GMAIL_ACCESS_TOKEN is set
-      run: |
-        if [ -z "$GMAIL_ACCESS_TOKEN" ]; then
-          echo "❌ GMAIL_ACCESS_TOKEN is not set"
-          exit 1
-        else
-          echo "✓ GMAIL_ACCESS_TOKEN is set (length: ${#GMAIL_ACCESS_TOKEN})"
-        fi
     - name: Run Playwright tests
       run: npx playwright test
     - uses: actions/upload-artifact@v4
